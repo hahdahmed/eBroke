@@ -1,4 +1,4 @@
-# nemo_25
+# nemo
 
 A new Flutter project.
 

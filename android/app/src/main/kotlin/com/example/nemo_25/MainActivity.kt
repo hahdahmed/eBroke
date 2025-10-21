@@ -1,4 +1,4 @@
-package com.example.nemo_25
+package com.example.nemo
 
 import io.flutter.embedding.android.FlutterActivity
 

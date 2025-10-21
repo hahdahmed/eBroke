@@ -1,6 +1,6 @@
 {
-    "name": "nemo_25",
-    "short_name": "nemo_25",
+    "name": "nemo",
+    "short_name": "nemo",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
