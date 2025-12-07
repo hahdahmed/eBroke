@@ -99,6 +99,6 @@ class MyApp extends StatelessWidget {
   }
 
   void _changeStatusBarColor() {
-    setStatusBarColor(AppColors.colorPrimary);
+    setStatusBarColor(AppColors.primary);
   }
 }

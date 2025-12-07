@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nemo/res/app_colors.dart';
+import 'package:nemo/res/text_style.dart';
 import 'package:nemo/utils/locale/app_localization.dart';
 
 class AppTheme {
@@ -22,54 +23,54 @@ class AppTheme {
   ThemeData get themeDataLight {
     return ThemeData(
       // useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: AppColors.colorSchemeSeed,
-        primary: AppColors.colorPrimary,
-      ),
-      primaryColor: AppColors.colorPrimary,
-      brightness: Brightness.light,
-      focusColor: AppColors.focus,
-      scaffoldBackgroundColor: AppColors.scaffoldBackground,
-      textTheme: txtThemeLight,
-      iconTheme: ThemeData.light().iconTheme.copyWith(
-        color: AppColors.iconTheme,
-      ),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        foregroundColor: AppColors.floatActionBtnIcon,
-        backgroundColor: AppColors.floatActionBtnBackground,
-      ),
+        colorScheme: ColorScheme(
+  brightness: Brightness.light,
+
+
+  primary: AppColors.primary,
+  onPrimary: AppColors.onPrimary,
+  primaryContainer: AppColors.primaryContainer,
+
+  secondary: AppColors.secondary,
+  secondaryContainer: AppColors.secondaryContainer,
+  onSecondary: AppColors.onSecondary,
+
+  error: AppColors.error,
+  onError: AppColors.onError,
+
+  surface: AppColors.surface,
+  onSurface: AppColors.onSurface,
+
+  // background: AppColors.black0,
+  // onBackground: AppColors.black100,
+),
+    
 
       appBarTheme: ThemeData.light().appBarTheme.copyWith(
         centerTitle: false,
         elevation: 0,
         iconTheme: ThemeData.light().iconTheme.copyWith(
-          color: AppColors.appBarIcon,
+          color: AppColors.appBarIconColor,
         ),
-        titleTextStyle: txtThemeLight.bodyMedium?.copyWith(
-          fontSize: 20,
+        titleTextStyle: AppTextStyles.headline4.copyWith(
           color: AppColors.appBarTextColor,
-          fontWeight: FontWeight.w800,
         ),
         backgroundColor: AppColors.appBarBackground,
       ),
+
+       textTheme: TextTheme(
+      headlineLarge: AppTextStyles.headline1,
+      headlineMedium: AppTextStyles.headline2,
+      headlineSmall: AppTextStyles.headline3,
+
+      bodyLarge: AppTextStyles.body1,
+      bodyMedium: AppTextStyles.body3,
+      bodySmall: AppTextStyles.body5,
+    ),
     );
   }
 
-  TextTheme get txtThemeLight => _textTheme.copyWith(
-    headlineMedium: _textTheme.headlineMedium?.copyWith(
-      color: AppColors.headlineMedium,
-      fontSize: 22,
-    ),
-    bodyMedium: _textTheme.bodyMedium?.copyWith(
-      color: AppColors.bodyMedium,
-      fontSize: 16,
-    ),
-    titleMedium: _textTheme.titleMedium?.copyWith(color: AppColors.titleMedium),
-    // for subtitle
-    labelLarge: const TextStyle(color: AppColors.labelLarge, fontSize: 14),
-    labelMedium: const TextStyle(fontSize: 14, color: AppColors.labelMedium),
-  );
-
+ 
   ThemeData get themeDataDark {
     return ThemeData(brightness: Brightness.dark);
   }
