@@ -10,7 +10,6 @@ import 'package:get_it/get_it.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:nemo/apis/_base/dio_api_manager.dart';
 import 'package:nemo/feature/home/screen/home_screen.dart';
-
 import 'package:nemo/preferences/preferences_manager.dart';
 import 'package:nemo/res/app_colors.dart';
 import 'package:nemo/utils/locale/app_localization.dart';
@@ -35,13 +34,12 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<LocaleCubit>(
-          create:
-              (context) => LocaleCubit(
-                LocaleRepository(
-                  dioApiManager,
-                  (GetIt.I<PreferencesManager>()),
-                ),
-              ),
+          create: (context) => LocaleCubit(
+            LocaleRepository(
+              dioApiManager,
+              (GetIt.I<PreferencesManager>()),
+            ),
+          ),
         ),
       ],
       child: BlocBuilder<LocaleCubit, Locale>(
@@ -50,47 +48,45 @@ class MyApp extends StatelessWidget {
             gestures: Platform.isAndroid ? [] : [GestureType.onTap],
             child: ScreenUtilInit(
               designSize: const Size(390, 844),
-              builder:
-                  (context, child) => MaterialApp(
-                    onGenerateTitle:
-                        (BuildContext context) =>
-                            AppLocalizations.of(
-                              context,
-                            )?.translate(LocalizationKeys.appName) ??
-                            "nemo",
-                    debugShowCheckedModeBanner: false,
-                    theme: AppTheme(state).themeDataLight,
-                    darkTheme: AppTheme(state).themeDataDark,
-                    themeMode: ThemeMode.light,
+              builder: (context, child) => MaterialApp(
+                onGenerateTitle: (BuildContext context) =>
+                    AppLocalizations.of(
+                      context,
+                    )?.translate(LocalizationKeys.appName) ??
+                    "nemo",
+                debugShowCheckedModeBanner: false,
+                theme: AppTheme(state).themeDataLight,
+                darkTheme: AppTheme(state).themeDataDark,
+                themeMode: ThemeMode.light,
 
-                    /// the list of our supported locals for our app
-                    /// currently we support only 2 English and Arabic ...
-                    supportedLocales: AppLocalizations.supportedLocales,
+                /// the list of our supported locals for our app
+                /// currently we support only 2 English and Arabic ...
+                supportedLocales: AppLocalizations.supportedLocales,
 
-                    /// these delegates make sure that the localization data
-                    /// for the proper
-                    /// language is loaded ...
-                    localizationsDelegates: const [
-                      /// A class which loads the translations from JSON files
-                      AppLocalizations.delegate,
+                /// these delegates make sure that the localization data
+                /// for the proper
+                /// language is loaded ...
+                localizationsDelegates: const [
+                  /// A class which loads the translations from JSON files
+                  AppLocalizations.delegate,
 
-                      /// Built-in localization of basic text
-                      ///  for Material widgets in Material
-                      GlobalMaterialLocalizations.delegate,
+                  /// Built-in localization of basic text
+                  ///  for Material widgets in Material
+                  GlobalMaterialLocalizations.delegate,
 
-                      /// Built-in localization for text direction LTR/RTL
-                      GlobalWidgetsLocalizations.delegate,
+                  /// Built-in localization for text direction LTR/RTL
+                  GlobalWidgetsLocalizations.delegate,
 
-                      /// Built-in localization for text direction LTR/RTL in Cupertino
-                      GlobalCupertinoLocalizations.delegate,
+                  /// Built-in localization for text direction LTR/RTL in Cupertino
+                  GlobalCupertinoLocalizations.delegate,
 
-                      DefaultCupertinoLocalizations.delegate,
-                    ],
-                    locale: state,
+                  DefaultCupertinoLocalizations.delegate,
+                ],
+                locale: state,
 
-                    routes: const {},
-                    home: const HomeScreen(),
-                  ),
+                routes: const {},
+                home: const HomeScreen(),
+              ),
             ),
           );
         },
