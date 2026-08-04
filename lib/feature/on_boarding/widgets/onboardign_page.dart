@@ -13,7 +13,7 @@ class OnboardignPage extends StatelessWidget {
     return Container(
       width: 339,
       height: 300,
-      color: AppColors.onboardingbackground.withOpacity(10),
+      color: AppColors.onboardingbackground,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
