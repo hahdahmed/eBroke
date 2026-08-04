@@ -9,7 +9,7 @@ import 'package:get_it/get_it.dart';
 
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:nemo/apis/_base/dio_api_manager.dart';
-import 'package:nemo/feature/home/screen/home_screen.dart';
+import 'package:nemo/feature/splash-screen/screen/splash_screen.dart';
 import 'package:nemo/preferences/preferences_manager.dart';
 import 'package:nemo/res/app_colors.dart';
 import 'package:nemo/utils/locale/app_localization.dart';
@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
                 locale: state,
 
                 routes: const {},
-                home: const HomeScreen(),
+                home: const SplashScreen(),
               ),
             ),
           );

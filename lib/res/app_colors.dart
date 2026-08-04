@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const _black = Color(0xff222222);
   static const _white = Colors.white;
+  static const _white50 = Color(0xFFF6F9FF);
+
   static const _grey = Color(0xffD9D9D9);
   static const _red = Colors.red;
   static const _transparent = Colors.transparent;
@@ -55,7 +57,7 @@ class AppColors {
   // static const todoColor = Color(0xff7812B7);
 
   // PRIMARY COLORS
-  static const Color _primary100 = Color(0xFF27AE60);
+  static const Color _primary100 = Color(0xFF2563EB);
   static const Color _primary80 = Color(0xFF52C488);
   static const Color _primary60 = Color(0xFF7BD6A3);
   static const Color _primary40 = Color(0xFFA4E7BF);
@@ -108,6 +110,7 @@ class AppColors {
   static const appBarBackground = _primary100;
   static const appBarTextColor = _black20;
   static const appBarIconColor = _black20;
+  static const onboardingbackground = _white50;
 
   // static const statusBar = _blueZodiac;
   static const baseBtnColorGreen = _primary100;
