@@ -39,6 +39,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.3.0
   fluttertoast: ^9.0.0
   get_it: ^8.0.3
   google_fonts: ^6.3.0
@@ -47,6 +48,7 @@ dependencies:
   keyboard_dismisser: ^3.0.0
   package_info_plus: ^9.0.0
   shared_preferences: ^2.5.3
+  smooth_page_indicator: ^2.0.1
 
 dev_dependencies:
   flutter_lints: ^5.0.0
