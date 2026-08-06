@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nemo/feature/auth/screens/login_screen.dart';
 import 'package:nemo/feature/on_boarding/widgets/onboardign_page.dart';
 import 'package:nemo/feature/on_boarding/widgets/onboarding_bottom_card.dart';
 import 'package:nemo/res/app_colors.dart';
-import 'package:nemo/utils/locale/app_localization.dart';
-import 'package:nemo/utils/locale/app_localization_keys.dart';
 import '../cubit/onboarding_cubit.dart';
 import '../cubit/onboarding_state.dart';
 import 'package:nemo/utils/locale/locale_cubit.dart';
@@ -16,29 +15,42 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => OnboardingCubit(),
-      child: BlocBuilder<OnboardingCubit, OnboardingState>(
+      child: BlocConsumer<OnboardingCubit, OnboardingState>(
+        listener: (context, state) {
+          if (state is OnboardingFinished) {
+            Navigator.pushReplacement(
+              context, 
+              MaterialPageRoute (
+                builder: (_) => const LoginScreen(),
+              ),
+            );
+          }
+        },
         builder: (context, state) {
           final cubit = OnboardingCubit.get(context);
           final localeCubit = context.read<LocaleCubit>();
           final currentLocale = context.watch<LocaleCubit>().state;
 
           return Scaffold(
-            backgroundColor: AppColors.onboardingbackground,
+            backgroundColor: Colors.white,
             body: SafeArea(
               child: Stack(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 70,
-                      bottom: 190,
+                  Container(
+                    color: AppColors.primary.withOpacity(0.1),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 70,
+                        bottom: 190,
+                      ),
+                      child: PageView.builder(
+                          controller: cubit.pageController,
+                          itemCount: cubit.pages.length,
+                          onPageChanged: cubit.changePage,
+                          itemBuilder: (context, index) {
+                            return OnboardignPage(model: cubit.pages[index]);
+                          }),
                     ),
-                    child: PageView.builder(
-                        controller: cubit.pageController,
-                        itemCount: cubit.pages.length,
-                        onPageChanged: cubit.changePage,
-                        itemBuilder: (context, index) {
-                          return OnboardignPage(model: cubit.pages[index]);
-                        }),
                   ),
                   Positioned(
                     top: 16,
@@ -68,21 +80,6 @@ class OnboardingScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        /*
-                        TextButton(
-                          onPressed: () {
-                            // Change Language
-                          },
-                          child:  Row(
-                            children: [
-                              Text(
-                                AppLocalizations.of(context)!
-                                    .translate(LocalizationKeys.languageValue)!,
-                              ),
-                              Icon(Icons.keyboard_arrow_down),
-                            ],
-                          ),
-                        ),*/
                         IconButton(
                           onPressed: () {
                             // Skip

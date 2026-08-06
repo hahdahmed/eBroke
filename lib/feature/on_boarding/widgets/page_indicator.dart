@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nemo/res/app_colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 class PageIndicator extends StatelessWidget {
   final PageController controller;
   final int count;

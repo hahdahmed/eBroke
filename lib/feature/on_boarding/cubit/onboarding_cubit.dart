@@ -44,7 +44,7 @@ class OnboardingCubit extends Cubit<OnboardingState> {
         curve: Curves.ease,
       );
     } else {
-      // Navigate Home
+      emit(OnboardingFinished());
     }
   }
 }

@@ -95,6 +95,6 @@ class MyApp extends StatelessWidget {
   }
 
   void _changeStatusBarColor() {
-    setStatusBarColor(AppColors.primary);
+    setStatusBarColor(AppColors.buttonTextLight);
   }
 }
