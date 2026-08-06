@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nemo/core/widgets/app_button.dart';
+import 'package:nemo/feature/auth/screens/opt_screen.dart';
 import 'package:nemo/feature/auth/widgets/auth_title.dart';
-import 'package:nemo/feature/auth/widgets/otp_input.dart';
 import 'package:nemo/res/app_colors.dart';
 import 'package:nemo/res/text_style.dart';
 
@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => const OtpInput(),
+                    builder: (_) => const OptScreen(),
                   ),
                 );
               },
