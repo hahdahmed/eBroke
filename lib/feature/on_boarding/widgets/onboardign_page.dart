@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nemo/feature/on_boarding/models/onboarding_model.dart';
-import 'package:nemo/res/app_colors.dart';
-
+ 
 class OnboardignPage extends StatelessWidget {
   final OnboardingModel model;
 

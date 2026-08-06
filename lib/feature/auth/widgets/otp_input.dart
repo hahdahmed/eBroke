@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nemo/feature/home/screen/home_screen.dart';
+import 'package:nemo/feature/home/screen/home_screen1.dart';
 import 'package:nemo/res/app_colors.dart';
 import 'package:nemo/res/text_style.dart';
 import 'package:pinput/pinput.dart';
