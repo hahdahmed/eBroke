@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:nemo/feature/auth/widgets/auth_title.dart';
+import 'package:nemo/feature/home/screen/home_screen.dart';
 import 'package:nemo/res/app_colors.dart';
 import 'package:nemo/res/text_style.dart';
 import 'package:pinput/pinput.dart';
 
-class OtpInput extends StatefulWidget {
+class OtpInput extends StatelessWidget {
   const OtpInput({super.key});
 
   @override
-  State<OtpInput> createState() => _OtpInputState();
-}
-
-class _OtpInputState extends State<OtpInput> {
-  @override
   Widget build(BuildContext context) {
-    final defaultpinTheme = PinTheme(
+    final defaultPinTheme = PinTheme(
       width: 55,
       height: 60,
       textStyle: AppTextStyles.headline3,
@@ -28,7 +23,7 @@ class _OtpInputState extends State<OtpInput> {
       ),
     );
 
-    final focusedPinTheme = defaultpinTheme.copyDecorationWith(
+    final focusedPinTheme = defaultPinTheme.copyDecorationWith(
       border: const Border(
         bottom: BorderSide(
           color: AppColors.primary,
@@ -36,46 +31,20 @@ class _OtpInputState extends State<OtpInput> {
         ),
       ),
     );
-    return Scaffold(
-      backgroundColor: AppColors.backLoginIconBackground,
-      appBar: AppBar(
-        backgroundColor: AppColors.appDropdownFill,
-        leading: IconButton(
-          color: AppColors.iconTheme,
-         
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: BackButton()),
 
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          children: [
-            SizedBox(height: 40,),
-            AuthTitle(
-              title: "Enter code sent \nto your Number", 
-              subtitle: "we sent it the number +91 987 654 3210"
-              
-            ),
-            SizedBox(height: 50,),
-            Pinput(
-              length: 4,
-              defaultPinTheme: defaultpinTheme,
-              focusedPinTheme: focusedPinTheme,
-            ),
-            SizedBox(height: 60,),
+    return Pinput(
+      length: 4,
+      defaultPinTheme: defaultPinTheme,
+      focusedPinTheme: focusedPinTheme,
 
-            Center(
-              child: Text(
-                "Resend code in 00:43",
-                style: AppTextStyles.body4,
-              ),
-            ),
-          ],
+      onCompleted: (pin) =>{
+        Navigator.pushReplacement(
+          context, 
+          MaterialPageRoute(
+            builder: (_) => const HomeScreen()
+          ),
         ),
-      ),
+      }
     );
   }
 }
